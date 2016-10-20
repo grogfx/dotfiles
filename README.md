@@ -1,3 +1,3 @@
-# my-configs
+# Dot files
 
-My personal configs. Most of them are vim configs.
+This repo has my personal configuration.

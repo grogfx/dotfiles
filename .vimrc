@@ -289,20 +289,23 @@ set ignorecase
 set smartcase
 highlight ColorColumn ctermbg=darkgray
 
+"Change indentation for c files
+autocmd FileType c setlocal tabstop=8
+
 "Enables yang's syntax
 au BufRead,BufNewFile *.yang setfiletype yang
 
 " Resizing a window split
-map <C-left> <C-w><
-map <C-up> <C-w>-
-map <C-down> <C-w>+
-map <C-right> <C-w>>
+"map <C-left> <C-w><
+"map <C-up> <C-w>-
+"map <C-down> <C-w>+
+"map <C-right> <C-w>>
 
 " Easy window navigation
-map <S-left> <C-w>h
-map <S-down> <C-w>j
-map <S-up> <C-w>k
-map <S-right> <C-w>l
+"map <S-left> <C-w>h
+"map <S-down> <C-w>j
+"map <S-up> <C-w>k
+"map <S-right> <C-w>l
 
 " Stop using arrows!!!!!
 "map <up> <nop>
@@ -333,3 +336,24 @@ endif
 "clang-format keybinds
 map <C-K> :pyf /home/gmartins/bin/clang-format.py<cr>
 imap <C-K> <c-o>:pyf /home/gmartins/bin/clang-format.py<cr>
+
+"highlight ifdefs
+syn region MySkip contained start="^\s*#\s*\(if\>\|ifdef\>\|ifndef\>\)" skip="\\$" end="^\s*#\s*endif\>" contains=MySkip
+let g:CommentDefines = ""
+hi link MyCommentOut2 MyCommentOut
+hi link MySkip MyCommentOut
+hi link MyCommentOut Comment
+map <silent> ,a :call AddCommentDefine()<CR>
+map <silent> ,x :call ClearCommentDefine()<CR>
+function! AddCommentDefine()
+  let g:CommentDefines = "\\(" . expand("<cword>") . "\\)"
+  syn clear MyCommentOut
+  syn clear MyCommentOut2
+  exe 'syn region MyCommentOut start="^\s*#\s*ifdef\s\+' . g:CommentDefines . '\>" end=".\|$" contains=MyCommentOut2'
+  exe 'syn region MyCommentOut2 contained start="' . g:CommentDefines . '" end="^\s*#\s*\(endif\>\|else\>\|elif\>\)" contains=MySkip'
+endfunction
+function! ClearCommentDefine()
+  let g:ClearCommentDefine = ""
+  syn clear MyCommentOut
+  syn clear MyCommentOut2
+endfunction

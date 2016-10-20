@@ -1,0 +1,164 @@
+# TODO: Take a look at /usr/share/tmux/*.conf for ideas for
+# more configuration tweaks.
+
+################################################################################
+# PREFIX KEY
+################################################################################
+
+# set prefix key.
+if-shell 'test "$HOSTNAME" == "arrr"' 'set-option -g prefix C-c'
+if-shell 'test "$HOSTNAME" == "arrr"' 'bind-key C-c send-prefix'
+if-shell 'test "$HOSTNAME" == "arrr"' 'unbind-key C-b'
+
+################################################################################
+# VISUAL STYLE
+################################################################################
+
+
+# tweak the overall style
+if-shell 'test "$HOSTNAME" == "arrr"' \
+         'set-option -g status-position top'
+if-shell 'test "$HOSTNAME" == "arrr"' \
+         'set-option status-position top'
+if-shell 'test "$HOSTNAME" == "arrr"' \
+         'set-option -g status-style bg=magenta,fg=black'
+if-shell 'test "$HOSTNAME" == "arrr"' \
+         'set-option -g pane-active-border-style fg=magenta'
+
+set-option -g window-status-current-fg white
+
+if-shell 'test "$HOSTNAME" == "arrr"' \
+         'set-option -g status-left "[C-c][#S]"' \
+         'set-option -g status-left "[C-b][#S]"'
+set-option -g status-left-length 20
+
+set-option -g status-right "\"#{=22:pane_title}\" @#H %H:%M %d-%b-%y"
+set-option -g status-right-length 40
+
+
+
+################################################################################
+# OPTIONS
+################################################################################
+
+# force VI mode.
+set-option -g status-keys vi
+set-window-option -g mode-keys vi
+
+# wm window title string (uses statusbar variables)
+set-option -g set-titles-string "tmux.#I.#W"
+
+# set aggressive resize for shared windows between sessions.
+set-window-option -g aggressive-resize on
+
+# set use of mouse
+set-option -g mouse-utf8 on
+set-option -g mouse on
+# REMOVED OPTIONS in 2.1 (replaced with 'mouse' option)
+#   set-option -g mouse-resize-pane on
+#   set-option -g mouse-select-pane on
+#   set-option -g mouse-select-window on
+#   #set-window-option -g mode-mouse off
+#   #set-window-option -g mode-mouse copy-mode
+#   set-window-option -g mode-mouse on
+# END removed options
+
+################################################################################
+# KEY BINDS
+################################################################################
+
+# rebind this default keys to a repetition enable of the same binding.
+bind-key -r n next-window
+bind-key -r p previous-window
+# rebind this default key to some diferent option.
+bind-key    s choose-tree -u
+
+# reload config file
+#bind-key R source-file ~/.tmux.conf
+bind-key R source-file ~/.config/tmux/tmux.conf \; \
+           display-message 'Reload config file!'
+
+# toggle statusbar
+bind-key b set-option status \; \
+           display-message 'Status bar: TOGGLE'
+
+# toggle statusbar position
+bind-key _ if-shell 'test "$(tmux show-options -vt #{session_name} status-position)" == "top"' \
+                    'set-option status-position bottom' \
+                    'set-option status-position top'
+
+# Set and reset the mouse support in tmux. Sometimes is usefull to let the
+# teminal emulator to handle the mouse and sometimes to let the tmux handle it.
+bind-key m set-option mouse on   \; \
+           display-message 'Mouse: ON'
+bind-key M set-option mouse off   \; \
+           display-message 'Mouse: OFF'
+# REMOVED OPTIONS in 2.1 (replaced with 'mouse' option)
+#   bind-key m set-option mouse-resize-pane on   \; \
+#              set-option mouse-select-pane on   \; \
+#              set-option mouse-select-window on \; \
+#              set-option -w mode-mouse on \; \
+#              display-message 'Mouse: ON'
+#   
+#   bind-key M set-option mouse-resize-pane off   \; \
+#              set-option mouse-select-pane off   \; \
+#              set-option mouse-select-window off \; \
+#              set-option -w mode-mouse off \; \
+#              display-message 'Mouse: OFF'
+# END removed options
+
+# keybind 't' is clock-mode
+#bind-key t set-option status-position top
+#bind-key T set-option status-position bottom
+
+# ctrl+left/right cycles thru windows
+bind-key -r C-PageDown next
+bind-key -r C-PageUp prev
+
+# Hide and show window name from status line
+# alternative format be like: '#I.#P#F'
+bind-key '-' set-window-option window-status-format '#I' \; \
+             set-window-option window-status-current-format '#I' \; \
+             display-message 'Window name: HIDE'
+bind-key '+' set-window-option window-status-format '#I:#W#F' \; \
+             set-window-option window-status-current-format '#I:#W#F' \; \
+             display-message 'Window name: SHOW'
+
+
+# This keybinds change the color and the prefix of the global session. The
+# prefix is set to the status-left.
+# XXX: If adding a new style, don't forget to change all styles to unbind the
+# new prefix.
+bind-key A set-option -g prefix C-a \; \
+           bind-key C-a send-prefix \; \
+           unbind-key C-b \; \
+           unbind-key C-v \; \
+           set-option -g status-style bg=yellow,fg=black \; \
+           set-option -g pane-active-border-style fg=yellow \; \
+           set-option -g status-left "[C-a][#S]"
+bind-key B set-option -g prefix C-b \; \
+           bind-key C-b send-prefix \; \
+           unbind-key C-a \; \
+           unbind-key C-v \; \
+           set-option -g status-style bg=green,fg=black \; \
+           set-option -g pane-active-border-style fg=green \; \
+           set-option -g status-left "[C-b][#S]"
+bind-key V set-option -g prefix C-v \; \
+           bind-key C-v send-prefix \; \
+           unbind-key C-a \; \
+           unbind-key C-b \; \
+           set-option -g status-style bg=magenta,fg=black \; \
+           set-option -g pane-active-border-style fg=magenta \; \
+           set-option -g status-left "[C-v][#S]"
+
+
+################################################################################
+# Plugins
+################################################################################
+
+# tmux-resurrect
+set -g @resurrect-save-bash-history 'on'
+set -g @resurrect-capture-pane-contents 'on'
+run-shell ~/git/tmux-resurrect/resurrect.tmux
+
+set -g history-limit 10000
