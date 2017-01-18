@@ -357,3 +357,6 @@ function! ClearCommentDefine()
   syn clear MyCommentOut
   syn clear MyCommentOut2
 endfunction
+
+" Show status line
+set laststatus=2
