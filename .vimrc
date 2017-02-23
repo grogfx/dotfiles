@@ -232,8 +232,14 @@ set t_Co=8
 " column with line number
 set number
 
-" don't use mouse
-set mouse=""
+" mouse for scrolling and resizing
+set mouse+=a
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
+
 
 " set fold column & folded lines color to red on black
 highlight CustomFoldColor term=italic cterm=NONE ctermfg=DarkCyan ctermbg=NONE gui=italic guifg=DarkCyan guibg=NONE
@@ -360,3 +366,5 @@ endfunction
 
 " Show status line
 set laststatus=2
+" tab completion listing
+set wildmenu
