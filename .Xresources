@@ -118,7 +118,7 @@ XTerm*locale: true
 XTerm*faceName: xft:ubuntu mono:autohint=true:antialias=true
 
 !! Default
-XTerm*faceSize: 12
+XTerm*faceSize: 9
 !! Unreadable
 XTerm*faceSize1: 8
 !! Tiny
@@ -172,7 +172,7 @@ URxvt*buffered: true
 
 !! FONT
 !URxvt*font: xft:dejavu sans mono:antialias=true:size=10
-URxvt*font: xft:Ubuntu Mono:autohint=true:antialias=true:size=12,\
+URxvt*font: xft:Ubuntu Mono:autohint=true:antialias=true:size=10,\
             xft:DejaVu Sans Mono:autohint=true:antialias=true:size=12,\
             xft:FreeMono:autohint=true:antialias=true:size=12,\
             xft:Symbola:autohint=true:antialias=true:size=12,\
