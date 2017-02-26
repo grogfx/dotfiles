@@ -140,7 +140,6 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -149,4 +148,19 @@ bar {
         status_command i3status
 }
 
-bindsym $mod+Shift+p exec "i3lock -d -c 000000"
+# Lock screen
+exec --no-startup-id xautolock -time 5 -locker "i3lock -c 000000 -p win -d"
+bindsym $mod+Shift+p exec "i3lock -c 000000 -p win -d"
+
+# Wallpaper
+#
+# To choose wallpaper for the first time, you should exec:
+#
+# feh --bg-fill '/path/to/wallpaper'
+#
+exec --no-startup-id ~gmartins/.fehbg
+
+# Custom keybindings
+bindsym $mod+F2 exec --no-startup-id firefox
+bindsym $mod+Shift+F2 exec --no-startup-id google-chrome
+bindsym $Mod+F3 exec --no-startup-id thunar
