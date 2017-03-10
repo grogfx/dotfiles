@@ -81,8 +81,9 @@ if has("cscope")
     set csto=0
 
     " add any cscope database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out  
+    let csfile = $PWD . "/cscope/cscope.out"
+    if filereadable(csfile)
+        exec 'cs add ' . csfile
     " else add the database pointed to by environment variable 
     elseif $CSCOPE_DB != ""
         cs add $CSCOPE_DB
