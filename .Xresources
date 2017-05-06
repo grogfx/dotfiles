@@ -101,11 +101,11 @@ URxvt.mapAlert: true
 
 Xcursor.size: 16
 
-Xft.autohint: false
-Xft.hintstyle: hintfull
+Xft.autohint: 0
+Xft.hintstyle: hintslight
 Xft.hinting: true
 Xft.lcdfilter: lcddefault
-Xft.dpi:120
+Xft.dpi:96
 Xft.antialias: true
 Xft.rgba: rgb
 
