@@ -1,4 +1,7 @@
-# Reference: http://krisko210.blogspot.com.br/2014/04/custom-i3-status-bar-and-slim.html
+# Reference:
+#   http://krisko210.blogspot.com.br/2014/04/custom-i3-status-bar-and-slim.html
+# pre-req:
+#   https://aur.archlinux.org/packages/ttf-font-awesome/
 
 out_to_x no
 own_window no

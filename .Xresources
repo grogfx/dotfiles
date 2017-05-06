@@ -86,6 +86,8 @@ URxvt*boldItalicFont: xft:Ubuntu Mono:bold:italic:size=10
 URxvt*boldFont: xft:Ubuntu Mono:bold:size=10
 
 ! EXTENSIONs
+! pre-req:
+!   https://aur.archlinux.org/packages/urxvt-font-size-git/
 URxvt.perl-ext-common: default,selection-to-clipboard,font-size
 URxvt.font-size.step: 1
 
