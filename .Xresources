@@ -1,9 +1,9 @@
-!!------ COLOR SCHEME --------------------------------------------------------!!
+!----------- color scheme -----------
 
-!! D_* : dark / low-intensity (normal) colors
-!! L_* : light / high-intensity (bold = bright foreground, blink = bright background) colours.
+! D_* : dark / low-intensity (normal) colors
+! L_* : light / high-intensity (bold = bright foreground, blink = bright background) colours.
 
-!! Tango color scheme
+! Tango color scheme
 #define D_black       #2e3436
 #define L_black       #555753
 #define D_red         #cc0000
@@ -25,6 +25,15 @@
 #define L_foreground  #d0d090
 #define L_cursor      #60f080
 
+!----------- urxvt -----------
+
+! COLOR
+URxvt*depth: 24
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
+!URxvt*underlineColor: yellow
+
 URxvt*background:     D_background
 URxvt*foreground:     L_foreground
 URxvt*fading:         0
@@ -33,132 +42,32 @@ URxvt*cursorColor:    L_cursor
 URxvt*pointerColorBackground: D_background
 URxvt*pointerColorForeground: L_cursor
 
-!! black dark/light
+! black dark/light
 URxvt*color0:         D_black
 URxvt*color8:         L_black
-!! red dark/light
+! red dark/light
 URxvt*color1:         D_red
 URxvt*color9:         L_red
-!! green dark/light
+! green dark/light
 URxvt*color2:         D_green
 URxvt*color10:        L_green
-!! yellow dark/light
+! yellow dark/light
 URxvt*color3:         D_yellow
 URxvt*color11:        L_yellow
-!! blue dark/light
+! blue dark/light
 URxvt*color4:         D_blue
 URxvt*color12:        L_blue
-!! magenta dark/light
+! magenta dark/light
 URxvt*color5:         D_magenta
 URxvt*color13:        L_magenta
-!! cyan dark/light
+! cyan dark/light
 URxvt*color6:         D_cyan
 URxvt*color14:        L_cyan
-!! white dark/light
+! white dark/light
 URxvt*color7:         D_white
 URxvt*color15:        L_white
 
-
-!!----- XTERM ----------------------------------------------------------------!!
-
-
-!! COLOR
-*customization: -color
-XTerm*cursorColor: green
-
-!! this makes man pages more like when in console. underline becomes a
-!! lightblue tone.
-XTerm*colorULMode: true
-XTerm*colorUL: lightblue
-
-XTerm*foreground: white
-XTerm*background: black
-!! black dark/light
-!XTerm*color0:
-!XTerm*color8:
-!! red dark/light
-!XTerm*color1:
-!XTerm*color9:
-!! green dark/light
-!XTerm*color2:
-!XTerm*color10:
-!! yellow dark/light
-!XTerm*color3:
-!XTerm*color11:
-!! blue dark/light
-!XTerm*color4:
-!XTerm*color12:
-!! magenta dark/light
-!XTerm*color5:
-!XTerm*color13:
-!! cyan dark/light
-!XTerm*color6:
-!XTerm*color14:
-!! white dark/light
-!XTerm*color7:
-!XTerm*color15:
-
-
-!! SCROLL
-XTerm*saveLines: 200000
-XTerm*forceBoxChars: true
-XTerm*scrollKey: true
-XTerm*scrollTtyOutput: false
-!XTerm*rightScrollBar: true
-
-
-!! FONT
-XTerm*font: 9x15 
-
-!! TrueType fonts
-XTerm*renderFont: true
-XTerm*utf8: true
-XTerm*locale: true
-!XTerm*faceName: xft:dejavu sans mono:autohint=true:antialias=true
-XTerm*faceName: xft:ubuntu mono:autohint=true:antialias=true
-
-!! Default
-XTerm*faceSize: 9
-!! Unreadable
-XTerm*faceSize1: 8
-!! Tiny
-XTerm*faceSize2: 10
-!! Small
-XTerm*faceSize3: 11
-!! Medium
-XTerm*faceSize4: 13
-!! Large
-XTerm*faceSize5: 14
-!! Huge
-XTerm*faceSize6: 16
-
-
-!! INPUT / KEYBOARD
-XTerm*metaSendsEscape: true
-
-
-!! UNKNOWN
-!XTerm*showMissingGlyphs: true
-
-
-
-
-!!----- URXVT ----------------------------------------------------------------!!
-
-!! COLOR
-!URxvt*fading: 0
-!URxvt*depth: 32
-!URxvt*foreground: white
-!URxvt*background: black
-!URxvt*background: #2c2c2c
-!URxvt*cursorColor: green
-!URxvt*cursorColor: orange
-!URxvt*colorBD: white
-!URxvt*colorIT: white
-!URxvt*colorUL: lightblue
-!URxvt*underlineColor: yellow
-
-!! SCROLL
+! SCROLL
 URxvt*scrollstyle: plain
 URxvt*scrollBar_right: false
 URxvt*scrollBar: false
@@ -170,46 +79,34 @@ URxvt*saveLines: 65535
 URxvt*secondaryScroll: false
 URxvt*buffered: true
 
-!! FONT
-!URxvt*font: xft:dejavu sans mono:antialias=true:size=10
-URxvt*font: xft:Ubuntu Mono:autohint=true:antialias=true:size=10,\
-            xft:DejaVu Sans Mono:autohint=true:antialias=true:size=12,\
-            xft:FreeMono:autohint=true:antialias=true:size=12,\
-            xft:Symbola:autohint=true:antialias=true:size=12,\
-            xft:Braille:autohint=true:antialias=true:size=12
-!            -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*
+! FONT
+URxvt*font: xft:Ubuntu Mono:size=10
+URxvt*italicFont: xft:Ubuntu Mono:italic:size=10
+URxvt*boldItalicFont: xft:Ubuntu Mono:bold:italic:size=10
+URxvt*boldFont: xft:Ubuntu Mono:bold:size=10
 
-!URxvt*boldFont: xft:ubuntu mono:bold:autohint=true:antialias=true:size=12
-!URxvt*italicFont: xft:ubuntu mono:italic:autohint=true:antialias=true:size=12
-!URxvt*boldItalicFont: xft:ubuntu mono:bold:italic:autohint=true:antialias=true:size=12
-
-!! EXTENSIONS
-URxvt.perl-lib: ~/.urxvt/ext
+! EXTENSIONs
 URxvt.perl-ext-common: default,selection-to-clipboard,font-size
-!!,vtwheel
 URxvt.font-size.step: 1
 
-!! KEYBINDINGS
+! KEYBINDINGS
 URxvt.keysym.C-Up: perl:font-size:increase
 URxvt.keysym.C-Down: perl:font-size:decrease
 
-!! UNKNOWN
+! UNKNOWN
 URxvt*letterSpace: -1
 URxvt.mapAlert: true
 
-
-
-
-!!----- X --------------------------------------------------------------------!!
+!----------- x -----------
 
 Xcursor.size: 16
 
-Xft.autohint: true
-!Xft.hintstyle: hintfull
-Xft.hintstyle: hintslight
+Xft.autohint: false
+Xft.hintstyle: hintfull
 Xft.hinting: true
+Xft.lcdfilter: lcddefault
+Xft.dpi:120
 Xft.antialias: true
 Xft.rgba: rgb
-Xft.lcdfilter: lcddefault
 
 
