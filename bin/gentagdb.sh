@@ -1,21 +1,24 @@
 #!/bin/bash
 
-set -e
+HERE=${PWD}
 
-dir=$1
+DIR=${1:-"${HERE}"}
 
-if [ ! -d $dir ]
-then
-	echo "Please show me where to start"
-	exit 1
+CSCOPE_FILES="${HERE}/cscope"
+
+if [[ ! -d ${CSCOPE_FILES} ]]; then
+  mkdir "${CSCOPE_FILES}"
 fi
 
-find $dir -type f -name '*.c' -o \
- -name '*.h' -o \
- -name '*.cc' -o \
- -name '*.cpp' -o \
- -name '*.hh' -o \
- -name '*.hpp' | sort > cscope.files
+find "$DIR" -name "*.c" -o \
+-name "*.cc" -o \
+-name "*.cpp" -o \
+-name "*.h" -o \
+-name "*.hh" -o \
+-name "*.hpp" \
+-type f | grep -v "refs.*build\|padtec.*build\|build.*padtec\|trd.*build" > "${CSCOPE_FILES}"/cscope.files
 
-cscope -q -R -b -i cscope.files 
-ctags -L 'cscope.files' 
+cd "${CSCOPE_FILES}"
+cscope -q -R -b -k
+ctags -L 'cscope.files'
+cd "${DIR}"

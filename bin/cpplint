@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/home/gmartins/bin/cpplint-padtec.py --root=include --linelength=512 "$@"
