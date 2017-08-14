@@ -277,12 +277,6 @@ map <silent> <F5> :set wrap!<cr>
 " ----------------------------------
 " Grogfx's section
 " ----------------------------------
-
-" Use pathogen to easily modify the runtime path to include all
-" plugins under the ~/.vim/bundle directory
-execute pathogen#infect()
-execute pathogen#helptags()
-
 syntax on
 filetype plugin indent on
 colors desert
@@ -291,7 +285,7 @@ set shiftwidth=2
 set expandtab
 set showmatch     " Briefly jump and show the matching bracket when inserting one.
 set incsearch     " Highlight matching pattern while typing the search command
-set colorcolumn=120                                                            
+"set colorcolumn=120
 set ignorecase
 set smartcase
 highlight ColorColumn ctermbg=darkgray
@@ -394,3 +388,25 @@ function! TabToggle()
   endif
 endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
+
+" ----------------------------------
+" Plugin's section
+" ----------------------------------
+" Initialize plugin system
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'funorpain/vim-cpplint'
+
+Plug 'vim-scripts/taglist.vim'
+
+Plug 'kien/ctrlp.vim'
+
+Plug 'FelikZ/ctrlp-py-matcher'
+
+call plug#end()
