@@ -80,27 +80,32 @@ URxvt*secondaryScroll: false
 URxvt*buffered: true
 
 ! FONT
-URxvt*font: xft:Ubuntu Mono:pixelsize=16
-URxvt*italicFont: xft:Ubuntu Mono:italic:pixelsize=16
-URxvt*boldItalicFont: xft:Ubuntu Mono:bold:italic:pixelsize=16
-URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=16
+URxvt*font: xft:Ubuntu Mono:pixelsize=11
+URxvt*italicFont: xft:Ubuntu Mono:italic:pixelsize=11
+URxvt*boldItalicFont: xft:Ubuntu Mono:bold:italic:pixelsize=11
+URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=11
 
 ! EXTENSIONs
 ! pre-req:
 !   https://aur.archlinux.org/packages/urxvt-font-size-git/
-URxvt.perl-ext-common: default,selection-to-clipboard,font-size
+URxvt.perl-ext-common: default,selection-to-clipboard,font-size,keyboard-select
 URxvt.font-size.step: 1
 
 ! KEYBINDINGS
-URxvt.keysym.C-Up: perl:font-size:increase
-URxvt.keysym.C-Down: perl:font-size:decrease
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-S-Up:   font-size:incglobal
+URxvt.keysym.C-S-Down: font-size:decglobal
+URxvt.keysym.C-equal:  font-size:reset
+URxvt.keysym.C-slash:  font-size:show
+URxvt.keysym.M-Escape: keyboard-select:activate
+URxvt.keysym.M-s:      keyboard-select:search
 
 ! UNKNOWN
 URxvt*letterSpace: -1
 URxvt.mapAlert: true
 
 !----------- x -----------
-
 Xcursor.size: 16
 
 Xft.autohint: 0
