@@ -80,10 +80,10 @@ URxvt*secondaryScroll: false
 URxvt*buffered: true
 
 ! FONT
-URxvt*font: xft:Ubuntu Mono:pixelsize=11
-URxvt*italicFont: xft:Ubuntu Mono:italic:pixelsize=11
-URxvt*boldItalicFont: xft:Ubuntu Mono:bold:italic:pixelsize=11
-URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=11
+URxvt*font: xft:Ubuntu Mono:pixelsize=16
+URxvt*italicFont: xft:Ubuntu Mono:italic:pixelsize=16
+URxvt*boldItalicFont: xft:Ubuntu Mono:bold:italic:pixelsize=16
+URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=16
 
 ! EXTENSIONs
 ! pre-req:
