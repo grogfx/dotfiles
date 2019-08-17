@@ -325,11 +325,7 @@ if executable("ag")
 	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
 endif
 " PyMatcher for CtrlP
-if !has('python')
-	echo 'In order to use pymatcher plugin, you need +python compiled vim'
-else
-	let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " Ignore these directories
  set wildignore+=./build
  set wildignore+=./refs
@@ -408,5 +404,8 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'kien/ctrlp.vim'
 
 Plug 'FelikZ/ctrlp-py-matcher'
+
+" Erlang Runtime
+Plug 'vim-erlang/vim-erlang-runtime'
 
 call plug#end()
