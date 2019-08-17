@@ -112,7 +112,8 @@ Xft.antialias: true
 Xft.rgba: rgb
 
 ! ---- tmux optimization -----
-URxvt*termName:  screen-256color
+URxvt*termName:  rxvt-unicode
 URxvt*loginShell:  true
+XTerm*termName:  xterm-256color
 
 
