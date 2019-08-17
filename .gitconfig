@@ -1,21 +1,10 @@
 [user]
 	name = Gabriel Soares Martins
-	email = gmartins@padtec.com.br
-[color]
-	diff = always
-	branch = always
-	interactive = always
-	ui = true
-	pager = true
-	status = always
+	email = gsmartinsbr@gmail.com
 [push]
 	default = matching
 [branch]
 	autosetuprebase = always
-[credential]
-	helper = store
-[credential "https://git.padtec.com.br"]
-	username = gmartins
 [merge]
 	tool = meld
 	conflictstyle = diff3
@@ -26,11 +15,9 @@
 	tool = meld
 [difftool]
 	prompt = false
-[url "ssh://gmartins@git.padtec.com.br/l/disk0/git/repos/"]
-	insteadOf = https://gmartins@git.padtec.com.br/r/
-[url "https://gmartins@git.padtec.com.br/r/"]
-	pushInsteadOf = https://gmartins@git.padtec.com.br/r/
 [alias]
-	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
 	lg = log --graph --oneline --decorate
+[color]
+	ui = auto

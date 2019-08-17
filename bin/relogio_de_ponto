@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if [[ -z "$1" ]]; then
+  echo "Usage: relogio_de_ponto [show|log]"
+fi
+
+if [[ "$1" == "show" ]]; then
+  cat /home/gmartins/Documents/Pessoal/relogio-de-ponto/relogio-de-ponto.txt
+  exit 0
+elif [[ "$1" == "log" ]]; then
+  date >> ~gmartins/Documents/Pessoal/relogio-de-ponto/relogio-de-ponto.txt
+  cat /home/gmartins/Documents/Pessoal/relogio-de-ponto/relogio-de-ponto.txt
+  exit 0
+else
+  exit 1
+fi
+
+
