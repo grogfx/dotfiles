@@ -5,7 +5,8 @@ PACKAGES_LIST="i3 \
     tmux \
     rxvt-unicode \
     feh \
-    xautolock"
+    xautolock \
+    fonts-croscore"
 
 install_packages() {
     sudo apt install ${PACKAGES_LIST}
@@ -14,6 +15,7 @@ install_packages() {
 update_xresources() {
     xrdb -merge ${USER_HOME}/.Xresources
     xrdb -load ${USER_HOME}/.Xresources
+    fc-cache
 }
 
 main() {

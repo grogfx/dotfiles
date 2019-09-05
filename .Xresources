@@ -82,10 +82,10 @@ URxvt.keysym.Shift-Up: command:\033]720;1\007
 URxvt.keysym.Shift-Down: command:\033]721;1\007
 
 ! FONT
-URxvt*font: xft:Courier:size=10
-URxvt*italicFont: xft:Courier:italic:size=10
-URxvt*boldItalicFont: xft:Courier:bold:italic:size=10
-URxvt*boldFont: xft:Courier:bold:size=10
+URxvt*font: xft:DejaVu Sans Mono:size=10
+URxvt*italicFont: xft:DejaVu Sans Mono:italic:size=10
+URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:size=10
+URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=10
 
 ! EXTENSIONs
 URxvt.perl-ext-common: selection-to-clipboard,font-size
