@@ -7,6 +7,8 @@ PACKAGES_LIST="i3 \
     feh \
     xautolock \
     bash-completion \
+    cscope \
+    exuberant-ctags \
     fonts-croscore"
 
 install_packages() {
