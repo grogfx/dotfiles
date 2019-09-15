@@ -163,14 +163,12 @@ bindsym $mod+Shift+p exec "i3lock -c 000000 -p win -d"
 #
 exec --no-startup-id ~gmartins/.fehbg
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute  
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute  
-bindsym XF86AudioMute exec amixer -q set Master mute  
-bindsym XF86AudioPlay exec playerctl play-pause  
-#bindsym XF86AudioNext exec playerctl next  
-#bindsym XF86AudioPrev exec playerctl previous   
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q set Master mute
+bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
 
 # Custom keybindings
 bindsym $mod+F2 exec --no-startup-id firefox
-#bindsym $mod+Shift+F2 exec --no-startup-id google-chrome
-bindsym $Mod+F3 exec --no-startup-id google-chrome
