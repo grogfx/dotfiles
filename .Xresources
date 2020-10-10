@@ -88,7 +88,10 @@ URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:size=10
 URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=10
 
 ! EXTENSIONs
-URxvt.perl-ext-common: selection-to-clipboard,font-size
+! URxvt.perl-ext-common: selection-to-clipboard,font-size
+URxvt.perl-ext:
+URxvt.perl-ext-common:
+
 ! Font size
 URxvt.font-size.step: 1
 URxvt.keysym.C-Up: font-size:increase
@@ -113,6 +116,6 @@ Xft.rgba: rgb
 ! ---- tmux optimization -----
 URxvt*termName:  rxvt-unicode
 URxvt*loginShell:  true
-XTerm*termName:  xterm-256color
+XTerm*termName:  rxvt-unicode
 
 

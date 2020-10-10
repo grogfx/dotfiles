@@ -228,7 +228,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " is too smart and see my xterm as 256 capable terminal em as soon we do anything
 " in vim it changes the color but it is kind of ugly because the theme is for 8
 " colors. In Debian there is this variant with 16 colors, we must test someday.
-set t_Co=8
+set t_Co=256
 
 " column with line number
 set number
@@ -384,6 +384,8 @@ function! TabToggle()
   endif
 endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
+
+set term=xterm-256color
 
 " ----------------------------------
 " Plugin's section

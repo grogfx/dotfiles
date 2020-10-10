@@ -44,7 +44,7 @@ case "$TERM" in
 esac
 
 if [ -n "$DISPLAY" -a "$color_prompt" == "yes" ]; then
-    export TERM=xterm-256color
+    export TERM=rxvt-unicode
 fi
 
 if [[ "$color_prompt" == "yes" ]]; then

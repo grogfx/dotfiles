@@ -1,18 +1,14 @@
 #!/bin/bash
 
-PACKAGES_LIST="i3 \
-    vim \
+PACKAGES_LIST="vim \
     tmux \
     rxvt-unicode \
-    feh \
-    xautolock \
     bash-completion \
     cscope \
-    exuberant-ctags \
-    fonts-croscore"
+    universal-ctags"
 
 install_packages() {
-    sudo apt install ${PACKAGES_LIST}
+    sudo pacman -S ${PACKAGES_LIST}
 }
 
 USER_HOME=${USER_HOME:-/home/${USER}}
