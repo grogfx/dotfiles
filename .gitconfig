@@ -1,6 +1,6 @@
 [user]
 	name = Gabriel Soares Martins
-	email = gsmartinsbr@gmail.com
+	email = gabriel.martins@ekinops.com
 [push]
 	default = matching
 [branch]
@@ -21,3 +21,10 @@
 	lg = log --graph --oneline --decorate
 [color]
 	ui = auto
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	ff = only

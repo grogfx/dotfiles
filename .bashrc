@@ -99,3 +99,8 @@ export PROMPT_COMMAND='history -a'
 export USER_HOME=/home/${USER}
 export PS1
 export XDG_CONFIG_HOME=${USER_HOME}/.config
+
+alias tmux='tmux -2'
+export PATH=/home/${USER}/bin:${PATH}
+
+

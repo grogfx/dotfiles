@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HERE=${PWD}
+HERE=$(pwd)
 
 DIR=${1:-"${HERE}"}
 
@@ -16,7 +16,7 @@ find "$DIR" -name "*.c" -o \
 -name "*.h" -o \
 -name "*.hh" -o \
 -name "*.hpp" \
--type f | grep -v "refs.*build\|padtec.*build\|build.*padtec\|trd.*build" > "${CSCOPE_FILES}"/cscope.files
+-type f > "${CSCOPE_FILES}"/cscope.files
 
 cd "${CSCOPE_FILES}"
 cscope -q -R -b -k
