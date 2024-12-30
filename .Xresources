@@ -78,24 +78,23 @@ URxvt*scrollWithBuffer: false
 URxvt*saveLines: 65535
 URxvt*secondaryScroll: false
 URxvt*buffered: true
-URxvt.keysym.Shift-Up: command:\033]720;1\007
-URxvt.keysym.Shift-Down: command:\033]721;1\007
 
 ! FONT
-URxvt*font: xft:DejaVu Sans Mono:size=10
-URxvt*italicFont: xft:DejaVu Sans Mono:italic:size=10
-URxvt*boldItalicFont: xft:DejaVu Sans Mono:bold:italic:size=10
-URxvt*boldFont: xft:DejaVu Sans Mono:bold:size=10
+URxvt*font: xft:NotoSansM Nerd Font Mono:size=16
+URxvt*italicFont: xft:NotoSansM Nerd Font Mono:italic:size=16
+URxvt*boldItalicFont: xft:NotoSansM Nerd Font Mono:bold:italic:size=16
+URxvt*boldFont: xft:NotoSansM Nerd Font Mono:bold:size=16
 
 ! EXTENSIONs
 !URxvt.perl-ext-common: selection-to-clipboard,font-size
-URxvt.perl-ext:
-URxvt.perl-ext-common:
+URxvt.perl-ext-common: font-size
 
 ! Font size
 !URxvt.font-size.step: 1
-!URxvt.keysym.C-Up: font-size:increase
-!URxvt.keysym.C-Down: font-size:decrease
+URxvt.keysym.C-Up: font-size:increase
+URxvt.keysym.C-Down: font-size:decrease
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
 
 ! UNKNOWN
 URxvt*letterSpace: -1
