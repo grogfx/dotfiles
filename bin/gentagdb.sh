@@ -1,1 +1,0 @@
-/home/gmartins/scripts/gentagdb.sh

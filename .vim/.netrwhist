@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/gmartins/Projetos/foc-als.sdk/repos/padtec.fw.proj.spvl.foc/source/module/protection'
-let g:netrw_dirhist_2='/home/gmartins/Projetos/foc-devel.sdk/repos/padtec.fw.proj.spvl.foc/source/module/protection'
-let g:netrw_dirhist_3='/home/gmartins/Projetos/compacto-2U.sdk/repos/padtec.fb.lib.padhal/src/device'
-let g:netrw_dirhist_4='/home/gmartins/Projetos/compacto-2U.sdk/repos/padtec.fw.proj.spvl.ft/source/config'
-let g:netrw_dirhist_5='/home/gmartins/Projetos/compacto-2U.sdk/repos/padtec.fb.lib.padhal/src/api'
-let g:netrw_dirhist_6='/home/gmartins/Projetos/compacto-2U.sdk/repos/padtec.es.proj.spvl.tools.bcm56146/script/spvlhb'
-let g:netrw_dirhist_7='/home/gmartins/Projetos/compacto-2U.sdk/repos/padtec.es.proj.spvl.tools.bcm56146/swt-mng/common'
