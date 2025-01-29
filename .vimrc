@@ -1,6 +1,18 @@
 " ----------------------------------
 " Plugin's section
 " ----------------------------------
+
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+   \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
 " Initialize plugin system
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
@@ -15,7 +27,7 @@ Plug 'vim-erlang/vim-erlang-runtime'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'jackguo380/vim-lsp-cxx-highlight'
+"Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 Plug 'rhysd/vim-clang-format'
 
@@ -24,6 +36,16 @@ Plug 'itchyny/lightline.vim'
 Plug 'morhetz/gruvbox'
 
 Plug 'vivien/vim-linux-coding-style'
+
+Plug 'vimwiki/vimwiki'
+
+Plug 'aklt/plantuml-syntax'             " syntax hl for puml
+
+Plug 'tyru/open-browser.vim'            " hooks for opeing browser
+
+Plug 'weirongxu/plantuml-previewer.vim' " previewer
+
+Plug 'tools-life/taskwiki'
 
 call plug#end()
 
@@ -52,13 +74,20 @@ set ttymouse=xterm2
 
 set noshowmode
 
+set clipboard=
+
 " set up color
 set background=dark
 let g:gruvbox_termcolors = '256'
 colorscheme gruvbox
 
+" vimwiki requirements
+set nocompatible
 syntax on
-filetype plugin indent on
+filetype plugin on
+
+filetype indent on
+
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -66,24 +95,6 @@ set showmatch     " Briefly jump and show the matching bracket when inserting on
 set incsearch     " Highlight matching pattern while typing the search command
 set ignorecase
 set smartcase
-
-" Resizing a window split
-"map <C-left> <C-w><
-"map <C-up> <C-w>-
-"map <C-down> <C-w>+
-"map <C-right> <C-w>>
-
-" Easy window navigation
-"map <S-left> <C-w>h
-"map <S-down> <C-w>j
-"map <S-up> <C-w>k
-"map <S-right> <C-w>l
-
-" Stop using arrows!!!!!
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
 
 " Show status line
 set laststatus=2
@@ -108,6 +119,15 @@ set t_vb=
 " ----------------------------------
 
 " https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
+
+" (gmartins) TextEdit might fail if hidden is not set.
+set hidden
+
+" (gmartins) Give more space for displaying messages.
+set cmdheight=2
+
+" (gmartins) Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
@@ -270,13 +290,18 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+let g:coc_global_extensions = ['coc-clangd']
+
+" Use autocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 " ----------------------------------
 " vim-lsp-cxx-highlight's section
 " ----------------------------------
 
-let g:cpp_class_scope_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
+"let g:cpp_class_scope_highlight = 1
+"let g:cpp_member_variable_highlight = 1
+"let g:cpp_class_decl_highlight = 1
 
 " ----------------------------------
 " vim-clang-format's section
@@ -287,8 +312,45 @@ nnoremap <Leader>f :<C-u>ClangFormat<CR>
 " ----------------------------------
 " lightline's section
 " ----------------------------------
-let g:lightline = {'colorscheme': 'selenized_dark',}
+"let g:lightline = {'colorscheme': 'selenized_dark',}
+let g:lightline = {
+      \ 'colorscheme': 'selenized_dark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
 
 let g:linuxsty_patterns = [ "/home/gmartins/Projetos/scull" ]
 
+" Use autocmd to force lightline update.
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
 autocmd FileType python let b:coc_root_patterns = ['.git', 'environ', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
+
+" ----------------------------------
+" Jenkinsfile syntax
+" ----------------------------------
+autocmd BufRead,BufNewFile Jenkinsfile set filetype=groovy
+
+" ----------------------------------
+" Vim Wiki
+" ----------------------------------
+let g:vimwiki_list = [{'path': '/home/gmartins/wiki/vimwiki/'}]
+au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
+
+" Do not conflict with coc.nvim
+"au filetype vimwiki silent! iunmap <buffer> <Tab>
+
+" ----------------------------------
+" PlantUML Syntax
+" ----------------------------------
+let g:plantuml_set_makeprg = 0
+
+" ----------------------------------
+" PlantUML Previewer
+" ----------------------------------
+let g:plantuml_previewer#plantuml_jar_path = '/home/gmartins/tools/plantuml'
