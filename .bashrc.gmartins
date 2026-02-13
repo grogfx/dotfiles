@@ -104,6 +104,8 @@ alias tmux='tmux -2'
 export PATH=/home/${USER}/bin:${PATH}
 
 # activate erlang installation
-ERL_DIR=/home/gmartins/tools/erlang/24.0.5
-. ${ERL_DIR}/activate
+ERL_DIR=${USER_HOME}/tools/erlang/24.0.5
+if [[ -d ${ERL_DIR} ]]; then
+  . ${ERL_DIR}/activate
+fi
 
